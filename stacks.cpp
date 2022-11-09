@@ -8,55 +8,18 @@
 using namespace std;
 //to_string() method to convert int to string
 
-// figure out how to make this into an array that accept strings
-/*int stack[5], n = 5, top = -1;
-void push (int subject)
-{
-  if (top >= n - 1)
-  cout << "Stack Overflow" << endl;
-  else
-  {
-    top++;
-    stack[top] = subject;
-  }
-}*/
-char subject[5];
-int top = -1, n = 5;
+char Q[5][30];
+char  A[100][100];
+int top = -1;
+
+int isempty();
 int isfull();
-
-
-void push(char subject[5])
-{
-  if (top >= n - 1)
-  {
-    cout << "Stack is full" << endl;
-  }
-  else
-  {
-    top++;
-    stack[top] = subject;
-  }
-}
-
-// figure out how to make the stack display everything from bottom to top
-void display()
-{
-  if (top >= 0)
-  {
-    cout << "\nArray Q Elements are copied to stack.. " << endl;
-    cout << "Stack contains = " << endl;
-    for (int i = top; i >= 0; i++)
-    cout << stack[i] << " ";
-    cout << endl;
-  }
-  else
-  cout << "Stack is Empty";
-}
+void push();
+void display();
 
 int main()
 {
     int ch;
-    string subject[5];
 
     do
     {
@@ -77,28 +40,29 @@ int main()
         case 1:
         {
           // ask user input for 5 subjects
-          cout << "Enter 5 Subjec Names in Array Q" << endl;
+          cout << "Enter 5 Subjects Names in Array Q" << endl;
           cout << "\n\t1. ";
-          cin >> subject[0];
+          cin >> Q[0];
 
           cout << "\n\t2. ";
-          cin >> subject[1];
+          cin >> Q[1];
 
-          cout << "\n\t3.";
-          cin >> subject[2];
+          cout << "\n\t3. ";
+          cin >> Q[2];
 
           cout << "\n\t4. ";
-          cin >> subject[3];
+          cin >> Q[3];
 
           cout << "\n\t5. ";
-          cin >> subject[4];
+          cin >> Q[4];
 
-          push(subject);
+          push(Q);
           break;
         }
         case 2:
         {
-
+          pop();
+          break;
         }
         case 3:
         {
@@ -109,4 +73,71 @@ int main()
 
     } while(ch != 4);
     return 0;
+}
+
+int isfull()
+{
+  if (top == max -1)
+  {
+    return 1;
+  }
+  else
+  {
+    return 0;
+  }
+}
+
+int isempty()
+{
+  if(top == -1)
+  {
+    return 1;
+  }
+  else
+  {
+    return 0;
+  }
+}
+
+void push()
+{
+  if (isfull())
+  {
+    cout << "Stack is full" << endl;
+  }
+  else
+  {
+    top++;
+    strcpy(A[top], Q);
+  }
+}
+
+int pop()
+{
+  if(isempty())
+  {
+    cout << "Stack is empty" << endl;
+  }
+  else
+  {
+    strcpy(Q, A[top]);
+    cout << " " << Q[5];
+    top--;
+  }
+}
+
+void display()
+{
+  if(isempty())
+  {
+    cout << "No data is displayed";
+    exit(0);
+  }
+  else
+  {
+    for (int i = 0; i < top+1; i++)
+    {
+      cout << " \n", A[i];
+    }
+  }
 }
