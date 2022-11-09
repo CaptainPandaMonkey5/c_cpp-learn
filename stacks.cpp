@@ -76,6 +76,8 @@ int main()
         }
         case 3:
         {
+          // do complete this there are a lot of references for it
+          cout << "\nDo you want to copy Array Q elements to Stack?[Y/N]: ";
           display();
           break;
         }
