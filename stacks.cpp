@@ -42,7 +42,8 @@ int main()
         case 1:
         {
           // ask user input for 5 subjects
-          cout << "Enter 5 Subjects Names in Array Q" << endl;
+          // please make this simple too
+          cout << "\nEnter 5 Subjects Names in Array Q" << endl;
           cout << "\n\t1. ";
           cin >> Q[0];
 
@@ -58,12 +59,19 @@ int main()
           cout << "\n\t5. ";
           cin >> Q[4];
 
-          push();
           break;
         }
         case 2:
         {
-          pop();
+          // Display inputted subject names by user
+          // please make this simple!
+          cout << "\nArray Q Elements" << endl;
+          cout << "\n\t-> @ array index 0 is " << Q[0] << endl;
+          cout << "\n\t-> @ array index 1 is " << Q[1] << endl;
+          cout << "\n\t-> @ array index 2 is " << Q[2] << endl;
+          cout << "\n\t-> @ array index 3 is " << Q[3] << endl;
+          cout << "\n\t-> @ array index 4 is " << Q[4] << endl;
+
           break;
         }
         case 3:
