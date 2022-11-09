@@ -4,6 +4,7 @@
 #include <array>
 #include <string>
 #include <stack>
+#include <cstring>
 
 using namespace std;
 //to_string() method to convert int to string
@@ -16,6 +17,7 @@ int isempty();
 int isfull();
 void push();
 void display();
+int pop();
 
 int main()
 {
@@ -56,7 +58,7 @@ int main()
           cout << "\n\t5. ";
           cin >> Q[4];
 
-          push(Q);
+          push();
           break;
         }
         case 2:
@@ -77,7 +79,7 @@ int main()
 
 int isfull()
 {
-  if (top == max -1)
+  if (top == 5 -1)
   {
     return 1;
   }
