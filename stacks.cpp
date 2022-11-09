@@ -13,11 +13,11 @@ char Q[5][30];
 char  A[100][100];
 int top = -1;
 
-/*int isempty();
+int isempty();
 int isfull();
 void push();
 void display();
-int pop();*/
+int pop();
 
 int main()
 {
@@ -78,7 +78,7 @@ int main()
         {
           // do complete this there are a lot of references for it
           cout << "\nDo you want to copy Array Q elements to Stack?[Y/N]: " << endl;
-          //display();
+          display();
           break;
         }
       }
@@ -87,7 +87,7 @@ int main()
     return 0;
 }
 
-/*int isfull()
+int isfull()
 {
   if (top == 5 -1)
   {
@@ -152,4 +152,4 @@ void display()
       cout << " \n", A[i];
     }
   }
-}*/
+}
