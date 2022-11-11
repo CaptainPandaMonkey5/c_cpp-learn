@@ -9,9 +9,11 @@
 using namespace std;
 //to_string() method to convert int to string
 
-char Q[5][30];
+string Q[5];
 char  A[100][100];
 int top = -1;
+int indexNUM[5] = {0, 1, 2, 3, 4};
+int sNum[5] = {1, 2, 3, 4, 5};
 
 int isempty();
 int isfull();
@@ -42,36 +44,24 @@ int main()
         case 1:
         {
           // ask user input for 5 subjects
-          // please make this simple too
           cout << "\nEnter 5 Subjects Names in Array Q" << endl;
-          cout << "\n\t1. ";
-          cin >> Q[0];
-
-          cout << "\n\t2. ";
-          cin >> Q[1];
-
-          cout << "\n\t3. ";
-          cin >> Q[2];
-
-          cout << "\n\t4. ";
-          cin >> Q[3];
-
-          cout << "\n\t5. ";
-          cin >> Q[4];
-
+          for (int a = 0; a <= 4; a++)
+          {
+            cout << "\n\t" << sNum[a] << ".";
+            cin >> Q[a];
+          }
           break;
         }
         case 2:
         {
           // Display inputted subject names by user
-          // please make this simple!
           cout << "\nArray Q Elements" << endl;
-          cout << "\n\t-> @ array index 0 is " << Q[0] << endl;
-          cout << "\n\t-> @ array index 1 is " << Q[1] << endl;
-          cout << "\n\t-> @ array index 2 is " << Q[2] << endl;
-          cout << "\n\t-> @ array index 3 is " << Q[3] << endl;
-          cout << "\n\t-> @ array index 4 is " << Q[4] << endl;
-
+          for (int i = 0; i <= 4; i++)
+          {
+            // print index of the subject
+            cout << "\n\t-> @ index " << indexNUM[i] << " is " << Q[i];
+          }
+          cout << endl;
           break;
         }
         case 3:
