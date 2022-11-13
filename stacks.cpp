@@ -8,7 +8,7 @@ class stack
 {
 private:
   int top;
-  string Q[5];
+  string value[5];
   char null = 0;
 
 public:
@@ -18,7 +18,7 @@ public:
     top = -1;
     for (int i = 0; i < 5; i++)
     {
-      Q[i] = null;
+      value[i] = null;
     }
   }
   bool isEmpty()
@@ -46,7 +46,7 @@ public:
     else
     {
       top++;
-      Q[top] = val;
+      value[top] = val;
     }
   }
 
@@ -59,8 +59,8 @@ public:
     }
     else
     {
-      string popValue = Q[top];
-      Q[top] = null;
+      string popValue = value[top];
+      value[top] = null;
       top--;
       cout << popValue;
     }
@@ -71,7 +71,7 @@ public:
     cout << "Stack contains =" << endl;
     for (int i = 4; i >= 0; i--)
     {
-      cout << Q[i] << endl;
+      cout << value[i] << endl;
     }
   }
 };
@@ -84,7 +84,6 @@ int main ()
   string choice;
   int sNum[5] = {1, 2, 3, 4, 5};
   int indexNum[5] = {0, 1, 2, 3, 4};
-  char Q[5];
 
   do
   {
@@ -139,10 +138,10 @@ int main ()
         cout << endl;*/
 
         cout << "\n\t-> @ index 0 is " << value[0];
-        cout << "\n\t-> @ index 0 is " << value[1];
-        cout << "\n\t-> @ index 0 is " << value[2];
-        cout << "\n\t-> @ index 0 is " << value[3];
-        cout << "\n\t-> @ index 0 is " << value[4];
+        cout << "\n\t-> @ index 1 is " << value[1];
+        cout << "\n\t-> @ index 2 is " << value[2];
+        cout << "\n\t-> @ index 3 is " << value[3];
+        cout << "\n\t-> @ index 4 is " << value[4];
         cout << endl;
         break;
       }
