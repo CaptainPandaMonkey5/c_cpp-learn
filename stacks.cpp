@@ -166,7 +166,10 @@ int main ()
                 s1.push(v5);
             s1.display();
         }
-        break;
+        else if (choice == "n" || "N")
+        {
+          break;
+        }
       }
       case 4:
       {
