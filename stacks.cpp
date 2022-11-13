@@ -138,11 +138,11 @@ int main ()
         }
         cout << endl;*/
 
-        cout << "\n\t-> @ index 0 is " << value[0];
-        cout << "\n\t-> @ index 0 is " << value[1];
-        cout << "\n\t-> @ index 0 is " << value[2];
-        cout << "\n\t-> @ index 0 is " << value[3];
-        cout << "\n\t-> @ index 0 is " << value[4];
+        cout << "\n\t-> array @ index 0 is " << value[0];
+        cout << "\n\t-> array @ index 1 is " << value[1];
+        cout << "\n\t-> array @ index 2 is " << value[2];
+        cout << "\n\t-> array @ index 3 is " << value[3];
+        cout << "\n\t-> array @ index 4 is " << value[4];
         cout << endl;
         break;
       }
@@ -154,7 +154,7 @@ int main ()
         if (choice == "y" || "Y")
         {
             cout << "Array Q elemets are copied to Stack..." << endl;
-            for(int v1:value[0])
+            for(char v1:value[0])
                 s1.push(v1);
             for(char v2:value[1])
                 s1.push(v2);
@@ -167,6 +167,17 @@ int main ()
             s1.display();
         }
         break;
+      }
+      case 4:
+      {
+        cout << "Program closed" << endl;
+      }
+      default:
+      {
+        if (option > 5)
+        cout << "XXXX Invalid Input...XXXX" << endl;
+        else
+          break;
       }
     }
   } while(option != 4);
