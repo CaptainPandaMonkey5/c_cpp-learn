@@ -1,93 +1,53 @@
 #include <iostream>
-#include <stdio.h>
-#include <string>
-
 using namespace std;
 
-class stack
+class S1
 {
 private:
   int top;
-  string Q[5];
-  char null = 0;
-
+  string *index;
+  int num2;
 public:
-
-   stack()
+   S1(int size)
   {
+    num2 = size;
     top = -1;
-    for (int i = 0; i < 5; i++)
-    {
-      Q[i] = null;
-    }
-  }
-  bool isEmpty()
-  {
-    if (top == -1)
-      return true;
-    else
-      return false;
+    index= new string[num2];
   }
 
-  bool isFull()
+  void push(string val)
   {
-    if (top == 4)
-      return true;
-    else
-      return false;
+    index[++top] = val;
   }
 
-  void push(int val)
+  void display(int num3)
   {
-    if (isFull())
+    int i = num3;
+    for (int counter = i; counter >= 0; counter--)
     {
-      cout << "Stack Overflow" << endl;
-    }
-    else
-    {
-      top++;
-      Q[top] = val;
-    }
-  }
-
-  int pop()
-  {
-    if (isEmpty())
-    {
-      cout << "Stack Underflow" << endl;
-      return 0;
-    }
-    else
-    {
-      string popValue = Q[top];
-      Q[top] = null;
-      top--;
-      cout << popValue;
-    }
-  }
-
-  void display()
-  {
-    cout << "Stack contains =" << endl;
-    for (int i = 4; i >= 0; i--)
-    {
-      cout << Q[i] << endl;
+      if(counter == i)
+      {
+        cout << "\n\t" << index[counter] << "    <- Top of the Stack" << endl;
+      }
+      else
+      {
+        cout << "\n\t" << index[counter] << endl;
+      }
     }
   }
 };
 
+S1 stack(5);
+int option;
+string Q[5];
+char choice;
+
 int main ()
 {
-  stack s1;
-  int option, position;
-  string value[5] = {" "};
-  string choice;
-  int sNum[5] = {1, 2, 3, 4, 5};
-  int indexNum[5] = {0, 1, 2, 3, 4};
-  char Q[5];
 
   do
   {
+
     cout << "------------------------------------------------------" << endl;
     cout << "                 CHAPTER 3: STACKS                    " << endl;
     cout << "Student Name: Cunanan, Lovely Angeline OL. | BSM CS-2A" << endl;
@@ -97,93 +57,57 @@ int main ()
     cout << "\n\t[3] - Array Q Elements to Stack\n\t";
     cout << "\n\t[4] - Exit\n";
     cout << "------------------------------------------------------" << endl;
-    cout << "Enter Choice[1-4]: ";
+    cout << "\tEnter Choice[1-4]: ";
     cin >> option;
 
     switch(option)
     {
       case 1:
-      {
         // ask user input for 5 subjects
         cout << "\nEnter 5 Subjects Names in Array Q" << endl;
-        /*for (int a = 0; a <= 4; a++)
-        {
-          cout << "\n\t" << sNum[a] << ".";
-          cin >> value[i];
-        }
-        break;*/
-        cout << "\n\t1. ";
-        cin >> value[0];
-
-        cout << "\n\t2. ";
-        cin >> value[1];
-
-        cout << "\n\t3. ";
-        cin >> value[2];
-        cout << "\n\t4. ";
-        cin >> value[3];
-        cout << "\n\t5. ";
-        cin >> value[4];
-        cout << endl;
+          for (int i = 0; i <= 4; i++)
+          {
+            i += 1;
+            printf("\n\t%i.  ", i);
+            i -= 1;
+            getline(cin >> ws, Q[i]);
+          }
         break;
-      }
       case 2:
-      {
         // Display inputted subject names by user
         cout << "\nArray Q Elements" << endl;
-        /*for (int i = 0; i < 5; i++)
+        for (int i = 0; i <= 4; i++)
         {
           // print index of the subject
-          cout << "\n\t-> @ index " << indexNum[i] << " is " << value[i];
+          printf("\n\t-> @ array index %i is ", i);
+          cout << Q[i] << endl;
         }
-        cout << endl;*/
-
-        cout << "\n\t-> array @ index 0 is " << value[0];
-        cout << "\n\t-> array @ index 1 is " << value[1];
-        cout << "\n\t-> array @ index 2 is " << value[2];
-        cout << "\n\t-> array @ index 3 is " << value[3];
-        cout << "\n\t-> array @ index 4 is " << value[4];
-        cout << endl;
         break;
-      }
       case 3:
-      {
-        // do complete this there are a lot of references for it
-        cout << "\nDo you want to copy Array Q elements to Stack?[Y/N]: ";
+        // stack the copied array
+        cout << "Do you want to copy Array Q elements to Stack?[Y/N]: ";
         cin >> choice;
-        if (choice == "y" || "Y")
-        {
-            cout << "Array Q elemets are copied to Stack..." << endl;
-            for(char v1:value[0])
-                s1.push(v1);
-            for(char v2:value[1])
-                s1.push(v2);
-            for(char v3:value[2])
-                s1.push(v3);
-            for(char v4:value[3])
-                s1.push(v4);
-            for(char v5:value[4])
-                s1.push(v5);
-            s1.display();
-        }
-        else if (choice == "n" || "N")
-        {
-          break;
-        }
-      }
-      case 4:
-      {
-        cout << "Program closed" << endl;
-      }
-      default:
-      {
-        if (option > 5)
-        cout << "XXXX Invalid Input...XXXX" << endl;
-        else
-          break;
-      }
-    }
-  } while(option != 4);
 
-  return 0;
+        if(choice == 'y' || choice == 'Y')
+        {
+          cout << "Array Q elements are copied to Stack..." << endl;
+          cout << "Stack Contains =" << endl;
+
+          for(int ctr = 0; ctr < 5; ctr++)
+          {
+            stack.push(Q[ctr]);
+          }
+          stack.display(4);
+        }
+        break;
+      case 4:
+        cout << "Program closed..." << endl;
+        exit(0);
+        break;
+      default:
+        cout << "XXXX Invalid Input... XXXX" << endl;
+        break;
+    }
+  } while(true);
+   return 0;
 }
