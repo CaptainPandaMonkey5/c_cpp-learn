@@ -1,0 +1,7 @@
+Print the date in a more human-readable format instead of just numbers (Jan 1, 2020 instead of 1 1 2020)
+
+What day of the week were you born? What day of the week did the moon landing take place?
+
+How many Sundays are there in a year? Or maybe how many weekends? How many weekdays?
+
+And maybe even create your own calendar that reminds you of tasks!
