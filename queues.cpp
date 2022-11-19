@@ -4,52 +4,166 @@
 using namespace std;
 
 const int MAX = 5;
-int q_arr[MAX];
+
+// stores the grades input by user means Queue_Grades
+int Q[MAX];
+
+// index of the item
 int front = -1;
 int rear = -1;
 
-void insert()
+void insert(int num)
 {
-  int addedItem;
-
   if (rear == MAX - 1)
   {
-    cout << "\n\tQueue is full..." << endl;
-    return;
+    cout << "Queue is full..." << endl;
   }
   else
   {
     if (front == -1)
       front = 0;
-    cout << "\n\t Input Grade to insert in queue: ";
-    cin >> addedItem;
-    rear += 1;
-    q_arr[rear] = addedItem;
+      rear += 1;
+      Q[rear] = num;
+  }
+}
+
+void clear_queue()
+{
+  for (int i = 0; i < MAX; i++)
+  {
+    Q[i] == NULL;
+  }
+  front = -1;
+  rear = -1;
+}
+
+
+void display()
+{
+  if (front == -1)
+  {
+    cout << "queue is empty";
+  }
+  else
+  {
+    cout << "Displaying Grades:" << endl;
+    for (int i = front; i <= rear; i++)
+    {
+      cout << "\nGrade #" << i + 1 << ": " << Q[i] << "\n";
+    }
+    cout << endl;
+  }
+}
+
+  void reverse()
+  {
+    int rev[MAX];
+
+    for (int i = 0; i < MAX; i++)
+    {
+      rev[i] = Q[rear - 1];
+    }
+
+    for (int i = 0; i < MAX; i++)
+    {
+      Q[i] = rev[i];
+    }
+}
+
+class Stack
+{
+private:
+  int top, SMAX;
+  int *items;
+public:
+  Stack(int size)
+  {
+    top = -1;
+    SMAX = size;
+
+    items = new int[SMAX];
+  }
+
+  void push(int num)
+  {
+    top++;
+    items[top] = num;
+  }
+
+  void display(void)
+  {
+    for (int i = top; i >= 0; i--)
+    {
+      if (i == top)
+      {
+        cout << items[i] << "<-- top of stack" << endl;
+      }
+      else
+      {
+        cout << items[i] << endl;
+      }
+    }
   }
 };
 
 int main()
 {
-  int choice;
-
-  while(1)
+  int choice, grades;
+  Stack st(MAX);
+  do
   {
-    cout << "\n\t[1] Input Grades" << endl;
+    cout << "------------------------------------------------------" << endl;
+    cout << "                 CHAPTER 3: STACKS                    " << endl;
+    cout << "Student Name: Cunanan, Lovely Angeline OL. | BSM CS-2A" << endl;
+
+    cout << "\n\t[1] Input your 5 Grades" << endl;
     cout << "\n\t[2] Transfer Grades from Queues to Stack" << endl;
     cout << "\n\t[3] Display Grades in Stack and Queue" << endl;
     cout << "\n\t[4] Reverse Grades from Queues" << endl;
     cout << "\n\t[5] Exit" << endl;
-    cout << "\n\tChoice: ";
+    cout << "------------------------------------------------------" << endl;
+    cout << "\tEnter Choice[1-4]: ";
     cin >> choice;
+    cout << endl;
 
     switch(choice)
     {
       case 1:
-        insert();
+        for(int i; i < MAX; i++)
+        {
+          cout << "Input your Grade: ";
+          cin >> grades;
+          insert(grades);
+          cout << endl;
+        }
+        display();
         break;
       case 2:
+        cout << "Transferring Grades from Queue to Stack..." << endl;
+        for (int i = 0; i >= rear; i--)
+        {
+          st.push(Q[rear - i]);
+        }
+        clear_queue();
+        st.display();
+        display();
         break;
       case 3:
-    }
+        display();
+        break;
+      case 4:
+      for (int i = 0; i < MAX; i++)
+  {
+    cout << "Input Grades: " << i + 1 << "\t";
+    cin >> grades;
+    insert(grades);
   }
+    display();
+        cout << "Reversing Elements..." << endl;
+        reverse();
+        display();
+        break;
+    }
+  } while (true);
+  return 0;
 }
