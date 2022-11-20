@@ -57,16 +57,16 @@ void display()
 
   void rev()
   {
-    int rev[MAX];
+    int reverse[MAX];
 
     for (int i = 0; i < MAX; i++)
     {
-      rev[i] = Q[rear - 1];
+      reverse[i] = Q[rear - 1];
     }
 
     for (int i = 0; i < MAX; i++)
     {
-      Q[i] = rev[i];
+      Q[i] = reverse[i];
     }
 }
 
