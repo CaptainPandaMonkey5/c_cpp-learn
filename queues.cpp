@@ -46,7 +46,7 @@ void display()
   }
   else
   {
-    cout << "Displaying Grades in the Queue:" << endl;
+    cout << "Grades in the Queue:" << endl;
     for (int i = front; i <= rear; i++)
     {
       cout << "\nGrade #" << i + 1 << ": " << Q[i] << "\n";
@@ -55,18 +55,18 @@ void display()
   }
 }
 
-  void rev()
+void eReverse()
   {
-    int reverse[MAX];
+    int rev[MAX];
 
     for (int i = 0; i < MAX; i++)
     {
-      reverse[i] = Q[rear - 1];
+      rev[i] = Q[rear - i];
     }
 
     for (int i = 0; i < MAX; i++)
     {
-      Q[i] = reverse[i];
+      Q[i] = rev[i];
     }
 }
 
@@ -157,13 +157,15 @@ int main()
           cout << endl;
         }
         display();
-        cout << "Reversing Elements..." << endl;
-        rev();
+        cout << "Reversing Elements..." << endl << endl;
+        eReverse();
         display();
         break;
       case 4:
-        cout << "Program has ended...";
+        cout << "\tProgram has ended..." << endl;
         exit(0);
+      default:
+        cout << "\tPlease input only from numbers 1 to 4..." << endl;
     }
   } while (true);
   return 0;
