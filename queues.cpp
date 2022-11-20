@@ -113,7 +113,7 @@ int main()
   do
   {
     cout << "------------------------------------------------------" << endl;
-    cout << "                 CHAPTER 3: STACKS                    " << endl;
+    cout << "                 CHAPTER 4: QUEUES                    " << endl;
     cout << "Student Name: Cunanan, Lovely Angeline OL. | BSM CS-2A" << endl;
 
     cout << "\n\t[1] Input your 5 Grades" << endl;
