@@ -42,11 +42,11 @@ void display()
 {
   if (front == -1)
   {
-    cout << "queue is empty";
+    cout << "\n\tThe Queue is Empty" << endl;
   }
   else
   {
-    cout << "Displaying Grades:" << endl;
+    cout << "Displaying Grades in the Queue:" << endl;
     for (int i = front; i <= rear; i++)
     {
       cout << "\nGrade #" << i + 1 << ": " << Q[i] << "\n";
@@ -55,7 +55,7 @@ void display()
   }
 }
 
-  void reverse()
+  void rev()
   {
     int rev[MAX];
 
@@ -96,7 +96,7 @@ public:
     {
       if (i == top)
       {
-        cout << items[i] << "<-- top of stack" << endl;
+        cout << items[i] << " <-- top of stack" << endl;
       }
       else
       {
@@ -108,7 +108,7 @@ public:
 
 int main()
 {
-  int choice, grades;
+  int choice, grades, nGrades;
   Stack st(MAX);
   do
   {
@@ -118,9 +118,8 @@ int main()
 
     cout << "\n\t[1] Input your 5 Grades" << endl;
     cout << "\n\t[2] Transfer Grades from Queues to Stack" << endl;
-    cout << "\n\t[3] Display Grades in Stack and Queue" << endl;
-    cout << "\n\t[4] Reverse Grades from Queues" << endl;
-    cout << "\n\t[5] Exit" << endl;
+    cout << "\n\t[3] Reverse Grades from Queues" << endl;
+    cout << "\n\t[4] Exit" << endl;
     cout << "------------------------------------------------------" << endl;
     cout << "\tEnter Choice[1-4]: ";
     cin >> choice;
@@ -140,7 +139,8 @@ int main()
         break;
       case 2:
         cout << "Transferring Grades from Queue to Stack..." << endl;
-        for (int i = 0; i >= rear; i--)
+        cout << endl;
+        for (int i = 0; i <= rear; i++)
         {
           st.push(Q[rear - i]);
         }
@@ -149,20 +149,21 @@ int main()
         display();
         break;
       case 3:
+        for (int i = 0; i < MAX; i++)
+        {
+          cout << "Input Grades: ";
+          cin >> nGrades;
+          insert(nGrades);
+          cout << endl;
+        }
+        display();
+        cout << "Reversing Elements..." << endl;
+        rev();
         display();
         break;
       case 4:
-      for (int i = 0; i < MAX; i++)
-  {
-    cout << "Input Grades: " << i + 1 << "\t";
-    cin >> grades;
-    insert(grades);
-  }
-    display();
-        cout << "Reversing Elements..." << endl;
-        reverse();
-        display();
-        break;
+        cout << "Program has ended...";
+        exit(0);
     }
   } while (true);
   return 0;
