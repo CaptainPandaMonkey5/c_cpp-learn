@@ -76,8 +76,29 @@ void updateFirstPlace(struct Race* race, struct RaceCar* raceCar1, struct RaceCa
   }
 }
 
+void startRace(struct RaceCar* raceCar1, struct RaceCar* raceCar2)
+{
+  struct Race race
+  {
+    .numberOfLaps = 5;
+    .currentLap = 1;
+    .firstPlaceDriverName = "";
+    .firstPlaceRaceCarColor = "";
+  };
+
+  for (int i = 0; i <= race.numberOfLaps; i++)
+  {
+    race.currentLap++;
+    updateRaceCar(raceCar1);
+    updateRaceCar(raceCar2);
+    updateFirstPlace(&race, raceCar1, raceCar2);
+    printFirstPlaceAfterLap(race);
+  };
+
+  printCongratulation(race);
+};
+
 int main() {
 	srand(time(0));
-  printIntro();
-  printCountDown();
+  
 };
