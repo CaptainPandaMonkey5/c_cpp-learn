@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 // Structures section
 struct Race
@@ -57,40 +58,40 @@ int calculateTimeToCompleteLap()
   return speed + acceleration + nerves;
 }
 
-void updateRaceCar(struct RaceCar* raceCarPointer)
+void updateRaceCar(struct RaceCar *raceCar)
 {
-  raceCarPointer->totalLapTime += calculateTimeToCompleteLap();
+  raceCar->totalLapTime += calculateTimeToCompleteLap();
 }
 
-void updateFirstPlace(struct Race* race, struct RaceCar* raceCar1, struct RaceCar* raceCar2)
+void updateFirstPlace(struct Race *race, struct RaceCar *raceCar1, struct RaceCar *raceCar2)
 {
   if (raceCar1->totalLapTime <= raceCar2->totalLapTime)
   {
-    race->firstPlaceDriverName, raceCar1->driverName;
-    race->firstPlaceRaceCarColor, raceCar1->raceCarColor;
+    strcpy(race->firstPlaceDriverName, raceCar1->driverName);
+    strcpy(race->firstPlaceRaceCarColor, raceCar1->raceCarColor);
   }
   else
   {
-    race->firstPlaceDriverName, raceCar2->driverName;
-    race->firstPlaceDriverName, raceCar2->raceCarColor;
-  };
-};
+    strcpy(race->firstPlaceDriverName, raceCar2->driverName);
+    strcpy(race->firstPlaceRaceCarColor, raceCar2->raceCarColor);
+  }
+}
 
-void startRace(struct RaceCar* raceCar1, struct RaceCar* raceCar2)
+void startRace(struct RaceCar *raceCar1, struct RaceCar *raceCar2)
 {
-  struct Race race = {5, 1, "", ""};
+  struct Race race = {5, 0, "", ""};
 
-  for (int i = 1; i <= race.numberOfLaps; i++)
+  for (int i = 0; i < race.numberOfLaps; i++)
   {
     race.currentLap++;
     updateRaceCar(raceCar1);
     updateRaceCar(raceCar2);
     updateFirstPlace(&race, raceCar1, raceCar2);
     printFirstPlaceAfterLap(race);
-  };
+  }
 
   printCongratulation(race);
-};
+}
 
 int main() {
 	srand(time(0));
