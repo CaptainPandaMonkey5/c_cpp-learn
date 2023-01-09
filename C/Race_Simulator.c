@@ -7,14 +7,14 @@ struct Race
 {
   int numberOfLaps;
   int currentLap;
-  char firstPlaceDriverName[20];
-  char firstPlaceRaceCarColor[10];
+  char* firstPlaceDriverName;
+  char* firstPlaceRaceCarColor;
 };
 
 struct RaceCar
 {
-  char driverName[10];
-  char raceCarColor[10];
+  char* driverName;
+  char* raceCarColor;
   int totalLapTime;
 };
 
@@ -64,7 +64,16 @@ void updateRaceCar(struct RaceCar* raceCar)
 
 void updateFirstPlace(struct Race* race, struct RaceCar* raceCar1, struct RaceCar* raceCar2)
 {
-  
+  if (raceCar1->totalLapTime <= raceCar2->totalLapTime)
+  {
+    race->firstPlaceDriverName = raceCar1->driverName;
+    race->firstPlaceRaceCarColor = raceCar1->raceCarColor;
+  }
+  else
+  {
+    race->firstPlaceDriverName = raceCar2->driverName;
+    race->firstPlaceDriverName = raceCar2->raceCarColor;
+  }
 }
 
 int main() {
