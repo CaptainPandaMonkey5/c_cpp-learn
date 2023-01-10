@@ -40,6 +40,16 @@ int main()
     {
       std::cout << "USER WINS...COMPUTER LOSS!\n";
     }
+    if (computer == 4)
+    {
+        std::cout << "SPOCK HAS VAPORIZED ROCK!!\n";
+        std::cout << "COMPUTER WINS...USER LOSS!\n";
+    }
+    if (computer == 5)
+    {
+        std::cout << "ROCK CRUSHES LIZARD!!\n";
+        std::cout << "USER WINS...COMPUTER LOSS!!\n";
+    }
   }
 
   // user paper
@@ -47,29 +57,95 @@ int main()
   {
     if (computer == 1)
     {
-      std::cout << "USER WINS...COMPUTER LOSS\n";
+      std::cout << "USER WINS...COMPUTER LOSS!\n";
     }
     if (computer == 3)
     {
-      std::cout << "COMPUTER WINS...USER LOSS\n";
+      std::cout << "COMPUTER WINS...USER LOSS!\n";
+    }
+    if (computer == 4)
+    {
+        std::cout << "PAPER DISPROVES SPOCK!!\n";
+        std::cout << "USER WINS...COMPUTER LOSS!\n";
+    }
+    if (computer == 5)
+    {
+        std::cout << "LIZARD EATS PAPER!!\n";
+        std::cout << "COMPUTER WINS...USER LOSS!\n";
     }
   }
+
   // user scissors
   else if (user == 3)
   {
     if (computer == 1)
     {
-      std::cout << "COMPUTER WINS...USER LOSS\n";
+      std::cout << "COMPUTER WINS...USER LOSS!\n";
     }
     if (computer == 2)
     {
-      std::cout << "USER WINS...COMPUTER LOSS\n";
+      std::cout << "USER WINS...COMPUTER LOSS!\n";
+    }
+    if (computer == 4)
+    {
+        std::cout << "SPOCK SMASHES SCISSOR!!\n";
+        std::cout << "COMPUTER WINS...USER LOSS!\n";
+    }
+    if (computer == 5)
+    {
+        std::cout << "SCISSOR DECAPITATE LIZARD!!\n";
+        std::cout << "USER WINS...COMPUTER LOSS!\n";
     }
   }
 
   // user spock
   else if (user == 4)
   {
-    
+    if (computer == 1)
+    {
+        std::cout << "SPOCK VAPORIZES ROCK!!\n";
+        std::cout << "USER WINS...COMPUTER LOSS\n";
+    }
+    if (computer == 2)
+    {
+        std::cout << "PAPER DISPROVES SPOCK!!\n";
+        std::cout << "COMPUTER WINS...USER LOSS!\n";
+    }
+    if (computer == 3)
+    {
+        std::cout << "SPOCK SMASHES SCISSORS!!\n";
+        std::cout << "USER WINS...COMPUTER LOSS!\n";
+    }
+    if (computer == 5)
+    {
+        std::cout << "LIZARD POISONS SPOCK!!\n";
+        std::cout << "COMPUTER WINS...USER LOSS!\n";
+    }
+
+    // user lizard
+    else if (user == 5)
+    {
+        if (computer == 1)
+        {
+            std::cout << "ROCK CRUSHES LIZARD!!\n";
+            std::cout << "COMPUTER WINS...USER LOSS!\n";
+        }
+        if (computer == 2)
+        {
+            std::cout << "LIZARD EATS PAPER!!\n";
+            std::cout << "USER WINS...COMPUTER LOSS!\n";
+        }
+        if (computer == 3)
+        {
+            std::cout << "SCISSORS DECAPITATE LIZARD!!\n";
+            std::cout << "COMPUTER WINS...USER LOSS!\n";
+        }
+        if (computer == 4)
+        {
+            std::cout << "LIZARD POISONS SPOCK!!\n";
+            std::cout << "USER WINS...COMPUTER LOSS!\n";
+        }
+    }
   }
+  return 0;
 }
